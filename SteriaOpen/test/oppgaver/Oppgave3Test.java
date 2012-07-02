@@ -42,5 +42,12 @@ public class Oppgave3Test {
 		BigDecimal sum = opg.summer(new BigDecimal(-30000), new BigDecimal(20000));
 		assertEquals(new BigDecimal(20000), sum);
 	}
+	
+	@Test
+	public void skal_summere_over_INT_MAX() {
+		Oppgave3 opg = new Oppgave3();
+		BigDecimal sum = opg.summer(new BigDecimal(Integer.MAX_VALUE), new BigDecimal(Integer.MAX_VALUE));
+		assertEquals(new BigDecimal("4294967294"), sum);
+	}
 
 }
