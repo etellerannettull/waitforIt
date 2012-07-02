@@ -3,7 +3,7 @@ package oppgaver;
 // ROT13, Zed Shaw
 public class Oppgave5 {
 
-	// Lånt litt(mye) fra http://en.literateprograms.org/Rot13_(Java)#chunk def:encode c  :)
+	// LÃ¥nt litt(mye) fra http://en.literateprograms.org/Rot13_(Java)#chunk def:encode c  :)
 	public String finnRot13(String tekst) {
 		if(tekst == null) return null;
 		

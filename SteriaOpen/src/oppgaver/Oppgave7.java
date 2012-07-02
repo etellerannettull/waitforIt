@@ -1,5 +1,6 @@
 package oppgaver;
 
+// Palindrom-Tom
 public class Oppgave7 {
 
 	public String finnPalindrom(String tekst) {
