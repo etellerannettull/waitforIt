@@ -90,10 +90,10 @@ public class Oppgave5Test {
 		assertEquals("Mrq Funj", rot13);
 	}
 	@Test
-	public void skal_finne_rot13_av_setning_med_ø_æ_å() {
+	public void skal_finne_rot13_av_setning_med_Ã¸_Ã¦_Ã¥() {
 		Oppgave5 opg = new Oppgave5();
-		String rot13 = opg.finnRot13("Jæi øver på å si æææ");
-		assertEquals("Wæv øire cå å fv æææ", rot13);
+		String rot13 = opg.finnRot13("JÃ¦i Ã¸ver pÃ¥ Ã¥ si Ã¦Ã¦Ã¦");
+		assertEquals("WÃ¦v Ã¸ire cÃ¥ Ã¥ fv Ã¦Ã¦Ã¦", rot13);
 	}
 
 }
