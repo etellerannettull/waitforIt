@@ -4,14 +4,14 @@ import java.math.BigInteger;
 
 // Bonusmodell
 public class Oppgave8 {
-	public BigInteger finnBonus(int antallÅr) {
-		if(antallÅr == 1) return BigInteger.ZERO;
-		if(antallÅr == 2) return new BigInteger("1000");
+	public BigInteger finnBonus(int antallÃ¥r) {
+		if(antallÃ¥r == 1) return BigInteger.ZERO;
+		if(antallÃ¥r == 2) return new BigInteger("1000");
 		
 		BigInteger a = BigInteger.ONE;
 		BigInteger b = BigInteger.ONE;
 		
-		for (int i = 2; i < antallÅr; i++) {
+		for (int i = 2; i < antallÃ¥r; i++) {
 			BigInteger c = a.add(b);
 			a = b;
 			b = c;
