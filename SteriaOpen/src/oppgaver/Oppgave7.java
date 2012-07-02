@@ -10,13 +10,12 @@ public class Oppgave7 {
 		int antall = 0;
 
 		while (venstre < høyre) {
-			if (tekst.charAt(venstre) != tekst.charAt(høyre)) {
-				break;
+			if (tekst.charAt(venstre) == tekst.charAt(høyre)) {
+				antall++;
 			}
 
 			venstre++;
 			høyre--;
-			antall++;
 		}
 
 		return antall == tekst.length() / 2 ? "PALINDROM-TOM" : "" + antall;
