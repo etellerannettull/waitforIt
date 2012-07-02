@@ -5,7 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class Oppgave5Test {
-
+	
+	@Test
+	public void skal_takle_null() {
+		Oppgave5 opg = new Oppgave5();
+		String rot13 = opg.finnRot13(null);
+		assertEquals(null, rot13);
+	}
+	
 	@Test
 	public void skal_finne_rot13_av_a() {
 		Oppgave5 opg = new Oppgave5();
