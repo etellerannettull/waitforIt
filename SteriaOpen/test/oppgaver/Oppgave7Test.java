@@ -54,5 +54,12 @@ public class Oppgave7Test {
 		String palindrom = opg.finnPalindrom("97144179");
 		assertEquals("PALINDROM-TOM", palindrom);
 	}
+	
+	@Test
+	public void skal_finne_antall_tall_som_er_palindrom_for_93144179() {
+		Oppgave7 opg = new Oppgave7();
+		String palindrom = opg.finnPalindrom("93144179");
+		assertEquals("3", palindrom);
+	}
 
 }
