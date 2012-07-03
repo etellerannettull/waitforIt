@@ -9,26 +9,22 @@ public class Oppgave1 {
 
 	public String formaterTidspunkt(Calendar cal) {
 		SimpleDateFormat sf = new SimpleDateFormat("dd.MM.YYYY HH:mm");
-		return sf.format(cal.getTime());
+		return sf.format(cal.getTime()); // Virker som denne bruker tidssonen vi
+											// er i til å skrive ut riktig
+											// tidspunkt?
 	}
 
 	public void leggTilTimer(Calendar cal, int antallTimer) {
-		// cal.setTimeInMillis(cal.getTimeInMillis() + (antallTimer * 60 * 60 *
-		// 1000));
-		cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) + antallTimer);
+		cal.setTimeInMillis(cal.getTimeInMillis() + (antallTimer * 60 * 60 * 1000));
+		// cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) +
+		// antallTimer);
 	}
 
 	public String finnTidspunktForLanding(int år, int måned, int dag, int time, int minutt, String tidssoneTarAv, String tidssoneLanding, int antallTimer) {
 		Calendar cal = new GregorianCalendar(TimeZone.getTimeZone(tidssoneTarAv));
 		cal.set(år, måned - 1, dag, time, minutt);
-		// System.out.println(formaterTidspunkt(cal) +
-		// cal.getTime().toString());
 		// cal.setTimeZone(TimeZone.getTimeZone(tidssoneLanding));
-		// System.out.println(formaterTidspunkt(cal) +
-		// cal.getTime().toString());
 		leggTilTimer(cal, antallTimer);
-		// System.out.println(formaterTidspunkt(cal) +
-		// cal.getTime().toString());
 		return formaterTidspunkt(cal);
 	}
 

@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class Oppgave1Test {
@@ -18,6 +19,14 @@ public class Oppgave1Test {
 	public void skal_skjønne_hvordan_calendar_fønker() {
 		Calendar cal = new GregorianCalendar(TimeZone.getTimeZone("GMT+01:00"));
 		cal.set(2012, 10, 30, 3, 2, 3);
+		cal.setTimeZone(TimeZone.getTimeZone("GMT+02:00"));
+
+		Calendar annencal = new GregorianCalendar(TimeZone.getTimeZone("GMT+02:00"));
+		annencal.set(2012, 10, 30, 3, 2, 3);
+
+		long timer = ((annencal.getTimeInMillis() - cal.getTimeInMillis()) / 1000 / 60 / 60);
+		System.out.println(timer);
+
 		SimpleDateFormat sf = new SimpleDateFormat("dd.MM.YYYY HH:mm", Locale.FRENCH);
 		System.out.println((sf.format(cal.getTime())));
 	}
@@ -80,7 +89,7 @@ public class Oppgave1Test {
 	@Test
 	public void skal_finne_ut_når_et_fly_lander_i_samme_tidssone() throws Exception {
 		Oppgave1 opg = new Oppgave1();
-		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "GMT+02:00", "MET", 4);
+		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "MET", "MET", 4);
 		assertEquals("10.08.2012 12:00", tidspunkt);
 	}
 
@@ -110,5 +119,13 @@ public class Oppgave1Test {
 		Oppgave1 opg = new Oppgave1();
 		String tidspunkt = opg.finnTidspunktForLanding(2012, 11, 10, 8, 0, "IST", "MET", 4);
 		assertEquals("10.11.2012 07:30", tidspunkt);
+	}
+
+	@Test
+	@Ignore
+	public void skal_finne_ut_når_et_fly_i_samme_tidssone_lander_i_overgang_til_vintertid() throws Exception {
+		Oppgave1 opg = new Oppgave1();
+		String tidspunkt = opg.finnTidspunktForLanding(2012, 10, 28, 0, 0, "UTC", "MET", 2);
+		assertEquals("28.10.2012 02:00", tidspunkt);
 	}
 }
