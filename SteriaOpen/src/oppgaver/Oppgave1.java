@@ -2,30 +2,34 @@ package oppgaver;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 public class Oppgave1 {
 
-	public String formaterDato(Date date) {
+	public String formaterTidspunkt(Calendar cal) {
 		SimpleDateFormat sf = new SimpleDateFormat("dd.MM.YYYY HH:mm");
-		return sf.format(date);
+		return sf.format(cal.getTime());
 	}
 
-	public String leggTilTimer(Calendar cal, int antallTimer) {
-		cal.setTimeInMillis(cal.getTimeInMillis() + (antallTimer * 60 * 60 * 1000));
-		// Fungerer å sette HOUR_OF_DAY, men skjønner ikke hvordan den skjønner
-		// døgnovergang... :)
-		// cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) +
-		// antallTimer);
-		return formaterDato(cal.getTime());
+	public void leggTilTimer(Calendar cal, int antallTimer) {
+		// cal.setTimeInMillis(cal.getTimeInMillis() + (antallTimer * 60 * 60 *
+		// 1000));
+		cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) + antallTimer);
 	}
 
-	public String finnTidspunktForLanding(int år, int måned, int dag, int time, int minutt, String tidssone, int antallTimer) {
-		Calendar cal = new GregorianCalendar(TimeZone.getTimeZone(tidssone));
+	public String finnTidspunktForLanding(int år, int måned, int dag, int time, int minutt, String tidssoneTarAv, String tidssoneLanding, int antallTimer) {
+		Calendar cal = new GregorianCalendar(TimeZone.getTimeZone(tidssoneTarAv));
 		cal.set(år, måned - 1, dag, time, minutt);
-		return leggTilTimer(cal, antallTimer);
+		// System.out.println(formaterTidspunkt(cal) +
+		// cal.getTime().toString());
+		// cal.setTimeZone(TimeZone.getTimeZone(tidssoneLanding));
+		// System.out.println(formaterTidspunkt(cal) +
+		// cal.getTime().toString());
+		leggTilTimer(cal, antallTimer);
+		// System.out.println(formaterTidspunkt(cal) +
+		// cal.getTime().toString());
+		return formaterTidspunkt(cal);
 	}
 
 	// Clojureløsning fra Bodil: :)
