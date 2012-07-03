@@ -80,21 +80,35 @@ public class Oppgave1Test {
 	@Test
 	public void skal_finne_ut_når_et_fly_lander_i_samme_tidssone() throws Exception {
 		Oppgave1 opg = new Oppgave1();
-		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "GMT+02:00", "GMT+02:00", 4);
+		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "GMT+02:00", "MET", 4);
 		assertEquals("10.08.2012 12:00", tidspunkt);
 	}
 
 	@Test
 	public void skal_finne_ut_når_et_fly_tar_av_i_tidssone_pluss_tre() throws Exception {
 		Oppgave1 opg = new Oppgave1();
-		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "GMT+03:00", "GMT+02:00", 4);
+		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "GMT+03:00", "MET", 4);
 		assertEquals("10.08.2012 11:00", tidspunkt);
 	}
 
 	@Test
-	public void skal_finne_ut_når_et_fly_tar_av_i_tidssone_pluss_ti() throws Exception {
+	public void skal_finne_ut_når_et_fly_tar_av_i_tidssone_cst() throws Exception {
 		Oppgave1 opg = new Oppgave1();
-		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "CST", "GMT+02:00", 4);
+		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "CST", "MET", 4);
 		assertEquals("10.08.2012 19:00", tidspunkt);
+	}
+
+	@Test
+	public void skal_finne_ut_når_et_fly_tar_av_i_tidssone_ist_i_sommertid() throws Exception {
+		Oppgave1 opg = new Oppgave1();
+		String tidspunkt = opg.finnTidspunktForLanding(2012, 8, 10, 8, 0, "IST", "MET", 4);
+		assertEquals("10.08.2012 08:30", tidspunkt);
+	}
+
+	@Test
+	public void skal_finne_ut_når_et_fly_tar_av_i_tidssone_ist_i_vintertid() throws Exception {
+		Oppgave1 opg = new Oppgave1();
+		String tidspunkt = opg.finnTidspunktForLanding(2012, 11, 10, 8, 0, "IST", "MET", 4);
+		assertEquals("10.11.2012 07:30", tidspunkt);
 	}
 }
