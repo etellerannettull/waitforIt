@@ -1,6 +1,7 @@
 package oppgaver;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class Oppgave1 {
@@ -8,6 +9,11 @@ public class Oppgave1 {
 	public String formaterDato(Date date) {
 		SimpleDateFormat sf = new SimpleDateFormat("dd.MM.YYYY HH:mm");
 		return sf.format(date);
+	}
+
+	public String leggTilTimer(Calendar cal, int antallTimer) {
+		cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) + antallTimer);
+		return formaterDato(cal.getTime());
 	}
 
 	// Clojureløsning fra Bodil: :)
