@@ -3,8 +3,9 @@ package oppgaver;
 
 public class Oppgave4 {
 	char farge = '0';
+	int[] antallAvHver = new int[10];
 	
-	public char tellFlokker(char[][] tegn) {
+	public int tellFlokker(char[][] tegn) {
 		
 		
 		for (int i = 0; i < tegn.length; i++) {
@@ -15,12 +16,23 @@ public class Oppgave4 {
 				}
 			}
 		}
+		
+		return tellFargerMedFlereEnnTre();
+	}
 
-		return farge;
+	private int tellFargerMedFlereEnnTre() {
+		int flokker = 0;
+		for (int antall : antallAvHver) {
+			if(antall >= 3) {
+				flokker++;
+			}
+		}
+		return flokker;
 	}
 
 	private void fargeleggOgSjekkNaboer(char[][] tegn, int i, int j) {
 		tegn[i][j] = farge;
+		antallAvHver[farge - '0']++;
 		
 		if(i > 0 && tegn[i-1][j] == 'S') { //sjekk over
 			fargeleggOgSjekkNaboer(tegn, i-1, j);
