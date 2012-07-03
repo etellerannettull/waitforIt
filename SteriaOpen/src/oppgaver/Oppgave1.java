@@ -3,6 +3,8 @@ package oppgaver;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 public class Oppgave1 {
 
@@ -12,8 +14,18 @@ public class Oppgave1 {
 	}
 
 	public String leggTilTimer(Calendar cal, int antallTimer) {
-		cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) + antallTimer);
+		cal.setTimeInMillis(cal.getTimeInMillis() + (antallTimer * 60 * 60 * 1000));
+		// Fungerer å sette HOUR_OF_DAY, men skjønner ikke hvordan den skjønner
+		// døgnovergang... :)
+		// cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) +
+		// antallTimer);
 		return formaterDato(cal.getTime());
+	}
+
+	public String finnTidspunktForLanding(int år, int måned, int dag, int time, int minutt, String tidssone, int antallTimer) {
+		Calendar cal = new GregorianCalendar(TimeZone.getTimeZone(tidssone));
+		cal.set(år, måned - 1, dag, time, minutt);
+		return leggTilTimer(cal, antallTimer);
 	}
 
 	// Clojureløsning fra Bodil: :)
