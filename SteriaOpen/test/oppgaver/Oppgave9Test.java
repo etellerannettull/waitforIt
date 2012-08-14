@@ -11,6 +11,8 @@ public class Oppgave9Test {
 		Oppgave9 opg = new Oppgave9();
 		opg.setAntallEtasjer(49);
 		opg.setEtasjeRangeHvorDøreneÅpnes(21, 25);
+		opg.setKnapper(8, -13);
+
 		assertEquals(opg.finnAntallTrekk(17, 26, 20, 19, 31), 8);
 	}
 
