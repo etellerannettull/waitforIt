@@ -30,6 +30,7 @@ public class Oppgave9 {
 	int finnAntallTrekkFor(int i) {
 		if (i + knapp1 >= lavesteEtasje && i + knapp1 <= høyesteEtasje || i + knapp2 >= lavesteEtasje && i + knapp2 <= høyesteEtasje)
 			return 1;
+
 		return 0;
 	}
 }

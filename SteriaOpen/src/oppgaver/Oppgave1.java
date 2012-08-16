@@ -1,63 +1,33 @@
 package oppgaver;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-
 public class Oppgave1 {
 
-	public String formaterTidspunkt(Calendar cal) {
-		SimpleDateFormat sf = new SimpleDateFormat("dd.MM.YYYY HH:mm");
-		return sf.format(cal.getTime()); // Virker som denne bruker tidssonen vi
-											// er i til å skrive ut riktig
-											// tidspunkt?
-	}
+	// if m[i][j] > 0
+	// you can move from pos i to pos m[i][j]
+	private int[][] m = {
+	/* 1 */{ 2, 4, 0, 0, 0 },
+	/* 2 */{ 1, 3, 5, 0, 0 },
+	/* 3 */{ 2, 6, 0, 0, 0 },
+	/* 4 */{ 1, 5, 7, 0, 0 },
+	/* 5 */{ 2, 4, 6, 8, 0 },
+	/* 6 */{ 3, 5, 9, 0, 0 },
+	/* 7 */{ 4, 9, 0, 0, 0 },
+	/* 8 */{ 5, 7, 9, 0, 0 },
+	/* 9 */{ 6, 8, 0, 0, 0 }, };
 
-	public void leggTilTimer(Calendar cal, int antallTimer) {
-		cal.setTimeInMillis(cal.getTimeInMillis() + (antallTimer * 60 * 60 * 1000));
-		// cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) +
-		// antallTimer);
-	}
+	public int finnMinstAntallTrekk(int[] utgangspos) {
+		int moves = 0;
 
-	public String finnTidspunktForLanding(int år, int måned, int dag, int time, int minutt, String tidssoneTarAv, String tidssoneLanding, int antallTimer) {
-		Calendar cal = new GregorianCalendar(TimeZone.getTimeZone(tidssoneTarAv));
-		cal.set(år, måned - 1, dag, time, minutt);
-		// cal.setTimeZone(TimeZone.getTimeZone(tidssoneLanding));
-		leggTilTimer(cal, antallTimer);
-		return formaterTidspunkt(cal);
-	}
+		boolean done = false;
+		while (!done) {
+			for (int i : utgangspos) {
+				if (i == 9) {
 
-	// Clojureløsning fra Bodil: :)
-	// (rule-ints #".*leaves from Paris (\d+)\.(\d+)\.(\d+) at (\d+):(\d+)\. It
-	// takes (\d+) minutes.*"
-	// [y mo d h m duration]
-	// (let [startmins (+ (* h 60) m)]
-	// (let [endmins (+ startmins duration)]
-	// (str y "." mo "." d " at " (padzero (int (/ endmins 60))) ":" (padzero
-	// (mod endmins 60))))))
-	//
-	// (rule-ints #".*leaves (\d+)\.(\d+)\.(\d+) at (\d+):(\d+)\. It takes (\d+)
-	// minutes.*"
-	// [y mo d h m duration]
-	// (let [startmins (+ (* h 60) m)]
-	// (let [endmins (+ startmins (+ duration 60))]
-	// (str y "." mo "." d " at " (padzero (int (/ endmins 60))) ":" (padzero
-	// (mod endmins 60))))))
-	// (rule-ints #".*Rome takes off (\d+)\.(\d+)\.(\d+) at (\d+):(\d+)\. It
-	// takes (\d+) minutes.*"
-	// [y mo d h m duration]
-	// (let [startmins (+ (* h 60) m)]
-	// (let [endmins (+ startmins duration)]
-	// (str y "." mo "." d " at " (padzero (int (/ endmins 60))) ":" (padzero
-	// (mod endmins 60))))))
-	//
-	// (rule-ints #".*New Your takes off (\d+)\.(\d+)\.(\d+) at (\d+):(\d+)\. It
-	// takes (\d+) minutes.*"
-	// [y mo d h m duration]
-	// (let [startmins (+ (* h 60) m)]
-	// (let [endmins (+ startmins (+ 360 duration))]
-	// (str y "." mo "." d " at " (padzero (int (/ endmins 60))) ":" (padzero
-	// (mod endmins 60))))))
+				}
+			}
+		}
+
+		return moves;
+	}
 
 }
