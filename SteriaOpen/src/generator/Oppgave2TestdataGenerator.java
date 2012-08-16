@@ -10,6 +10,7 @@ public class Oppgave2TestdataGenerator {
 
 	private static final String NEW_LINE = "\n";
 
+	// TODO Må fikse implementasjonen så samme person kan være sjef til flere
 	public static void main(String[] args) {
 		Map<String, String> map1 = new HashMap<>();
 		map1.put("Tore", "Kjell");
