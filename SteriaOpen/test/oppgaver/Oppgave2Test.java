@@ -13,7 +13,7 @@ public class Oppgave2Test {
 	public void skal_returnere_omggirlz() {
 		Oppgave2 opg = new Oppgave2();
 		String svar = opg.finnKjell(new HashMap<String, String>());
-		assertEquals("OMGGIRLZ", svar);
+		assertEquals("NOKJELL", svar);
 	}
 
 	@Test
@@ -31,10 +31,24 @@ public class Oppgave2Test {
 		Map<String, String> kart = new HashMap<>();
 		kart.put("Kjell", "Gunnar");
 		kart.put("Trond", "Kjell");
-		
+
 		Oppgave2 opg = new Oppgave2();
 		String svar = opg.finnKjell(kart);
 		assertEquals("1", svar);
+	}
+
+	@Test
+	public void skal_funke_smilefjes() throws Exception {
+		Map<String, String> kart = new HashMap<>();
+		kart.put("Kjell", "Gunnar");
+		kart.put("Kjell", "Line");
+		kart.put("Trond", "Kjell");
+		kart.put("Trond", "Beate");
+
+		Oppgave2 opg = new Oppgave2();
+		String svar = opg.finnKjell(kart);
+		assertEquals("1", svar);
+
 	}
 
 }

@@ -12,24 +12,24 @@ public class Oppgave2 {
 		for (Entry<String, String> sjefenTil : kart.entrySet()) {
 			kjellFinnes |= sjefenTil.getKey().equals(KJELL) || sjefenTil.getValue().equals(KJELL);
 		}
-		if(!kjellFinnes) {
-			return "OMGGIRLZ";
+		if (!kjellFinnes) {
+			return "NOKJELL";
 		} else {
-		
-		String sjefenTil = KJELL;
-		int stegOpp = 0;
-		while(finnSjefenTil(sjefenTil, kart) != null) {
-			stegOpp++;
-			sjefenTil = finnSjefenTil(sjefenTil, kart);
-		}
-		
-		return "" + stegOpp;
+
+			String sjefenTil = KJELL;
+			int stegOpp = 0;
+			while (finnSjefenTil(sjefenTil, kart) != null) {
+				stegOpp++;
+				sjefenTil = finnSjefenTil(sjefenTil, kart);
+			}
+
+			return "" + stegOpp;
 		}
 	}
-	
+
 	private String finnSjefenTil(String navn, Map<String, String> kart) {
 		for (Entry<String, String> sjefenTil : kart.entrySet()) {
-			if(sjefenTil.getValue().equals(navn)) {
+			if (sjefenTil.getValue().equals(navn)) {
 				return sjefenTil.getKey();
 			}
 		}
