@@ -18,7 +18,7 @@ public class Oppgave7 {
 			høyre--;
 		}
 
-		return antall == tekst.length() / 2 ? "PALINDROM-TOM" : "" + antall;
+		return antall == tekst.length() / 2 ? "TACOCAT" : "" + antall;
 	}
 
 }

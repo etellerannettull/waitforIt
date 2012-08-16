@@ -1,6 +1,6 @@
 package oppgaver;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ public class Oppgave7Test {
 	public void skal_returnere_palindrom_tom() {
 		Oppgave7 opg = new Oppgave7();
 		String palindrom = opg.finnPalindrom("12344321");
-		assertEquals("PALINDROM-TOM", palindrom);
+		assertEquals("TACOCAT", palindrom);
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class Oppgave7Test {
 	public void skal_finne_antall_tall_som_er_palindrom_for_12521() {
 		Oppgave7 opg = new Oppgave7();
 		String palindrom = opg.finnPalindrom("12521");
-		assertEquals("PALINDROM-TOM", palindrom);
+		assertEquals("TACOCAT", palindrom);
 	}
 
 	@Test
@@ -52,9 +52,9 @@ public class Oppgave7Test {
 	public void skal_finne_antall_tall_som_er_palindrom_for_97144179() {
 		Oppgave7 opg = new Oppgave7();
 		String palindrom = opg.finnPalindrom("97144179");
-		assertEquals("PALINDROM-TOM", palindrom);
+		assertEquals("TACOCAT", palindrom);
 	}
-	
+
 	@Test
 	public void skal_finne_antall_tall_som_er_palindrom_for_93144179() {
 		Oppgave7 opg = new Oppgave7();
