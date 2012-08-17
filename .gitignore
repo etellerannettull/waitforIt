@@ -6,3 +6,9 @@
 *.ear
 /.metadata/*
 /SteriaOpen/.settings/*
+
+.DS_Store
+
+SteriaOpen/.classpath
+
+SteriaOpen/.classpath
