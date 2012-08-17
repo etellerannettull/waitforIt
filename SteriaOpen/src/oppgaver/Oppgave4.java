@@ -3,7 +3,7 @@ package oppgaver;
 
 public class Oppgave4 {
 	char farge = '0';
-	int[] antallAvHver = new int[10];
+	private int[] antallAvHver = new int[150];
 	
 	public int tellFlokker(char[][] tegn) {
 		
@@ -17,7 +17,9 @@ public class Oppgave4 {
 			}
 		}
 		
-		return tellFargerMedFlereEnnTre();
+		int antall = tellFargerMedFlereEnnTre();
+		antallAvHver = new int[150];
+		return antall;
 	}
 
 	private int tellFargerMedFlereEnnTre() {

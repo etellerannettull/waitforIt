@@ -10,7 +10,7 @@ public class Oppgave3TestdataGenerator {
 
 	public static void main(String[] args) {
 		BigDecimal[][] tall = {
-				{ new BigDecimal(100000), new BigDecimal(200000), new BigDecimal(300000) },
+				{ new BigDecimal(1000), new BigDecimal(2000), new BigDecimal(3000) },
 				{ new BigDecimal(-30000), new BigDecimal(20000) },
 				{ new BigDecimal(-30000000), new BigDecimal(20000), new BigDecimal(523000), new BigDecimal(1234567890) },
 				{ new BigDecimal(1230), new BigDecimal(20), BigDecimal.TEN },

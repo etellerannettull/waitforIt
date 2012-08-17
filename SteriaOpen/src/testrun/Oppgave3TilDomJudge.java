@@ -2,9 +2,10 @@ package testrun;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.util.StringTokenizer;
 
-public class Oppgave5TilDomJudge {
+public class Oppgave3TilDomJudge {
 
 	static BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
 	static StringTokenizer st = new StringTokenizer("");
@@ -12,15 +13,16 @@ public class Oppgave5TilDomJudge {
 	public static void main(String[] args) throws Exception {
 
 		int antallTestcase = readInt();
-		for (int i = 0; i < antallTestcase; i++) {
-			System.out.println(finnRot13(readLine()));
+		for (int j = 0; j < antallTestcase; j++) {
+			int antallProsjekt = readInt();
+			BigDecimal[] prosjekter = new BigDecimal[antallProsjekt];
+			for (int i = 0; i < antallProsjekt; i++) {
+				prosjekter[i] = new BigDecimal(readString());
+			}
+			System.out.println(summer(prosjekter));
 		}
 	}
 
-	static String readLine() throws Exception {
-		return stdin.readLine();
-	}
-	
 	// Read next input-token as string.
 	static String readString() throws Exception {
 		while (!st.hasMoreTokens()) {
@@ -34,27 +36,18 @@ public class Oppgave5TilDomJudge {
 		return Integer.parseInt(readString());
 	}
 
-	static String finnRot13(String tekst) {
-		if (tekst == null)
-			return null;
+	// Read next input-token as double.
+	static double readDouble() throws Exception {
+		return Double.parseDouble(readString());
+	}
 
-		String nyTekst = new String();
-		for (int i = 0; i < tekst.length(); i++) {
-			char c = tekst.charAt(i);
-
-			if (c >= 'a' && c <= 'm')
-				c += 13;
-			else if (c >= 'n' && c <= 'z')
-				c -= 13;
-			else if (c >= 'A' && c <= 'M')
-				c += 13;
-			else if (c >= 'N' && c <= 'Z')
-				c -= 13;
-
-			nyTekst += c;
-
+	static BigDecimal summer(BigDecimal... tall) {
+		BigDecimal sum = BigDecimal.ZERO;
+		for (BigDecimal t : tall) {
+			if (t.signum() > 0)
+				sum = sum.add(t);
 		}
 
-		return nyTekst;
+		return sum;
 	}
 }
